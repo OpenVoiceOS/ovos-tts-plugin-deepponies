@@ -10,13 +10,11 @@ import torch
 from g2p_en import G2p
 from nemo_text_processing.text_normalization.normalize import Normalizer
 from nltk.tokenize import sent_tokenize, TweetTokenizer
-from ovos_utils.xdg_utils import xdg_data_home
 from transformers import AutoTokenizer
 
 
 class DeepPoniesEngine:
-    def __init__(self, model_path=None):
-        model_path = model_path or f"{xdg_data_home()}/deepponies"
+    def __init__(self, model_path):
         self.download_models(model_path)
         self.g2p = G2p()
         self.acoustic_model = torch.jit.load(f"{model_path}/acoustic_model.pt")

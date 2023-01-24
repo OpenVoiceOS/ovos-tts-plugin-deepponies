@@ -1,5 +1,6 @@
 import soundfile as sf
 from ovos_plugin_manager.templates.tts import TTS
+from ovos_utils.xdg_utils import xdg_data_home
 
 from ovos_tts_plugin_deepponies.deepponies import DeepPoniesEngine
 
@@ -9,11 +10,12 @@ class DeepPoniesTTSPlugin(TTS):
         ssml_tags = []
         super().__init__(*args, **kwargs, audio_ext="wav", ssml_tags=ssml_tags)
         # read config settings for your plugin if any
+        self.model_path = self.config.get("model", f"{xdg_data_home()}/deepponies")
         self.rate = self.config.get("rate", 1.0)
         self.voice = self.config.get("voice")
         if not self.voice or self.voice == "default":
             self.voice = "Heavy"
-        self.engine = DeepPoniesEngine()
+        self.engine = DeepPoniesEngine(self.model_path)
 
     def get_tts(self, sentence, wav_file, voice=None):
         voice = voice or self.voice
