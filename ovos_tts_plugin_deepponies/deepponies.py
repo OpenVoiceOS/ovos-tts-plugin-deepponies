@@ -1,22 +1,23 @@
 import json
 import re
-from os.path import dirname
-from tempfile import gettempdir
+from os import makedirs
+from os.path import dirname, isfile
 
 import nltk
 import numpy as np
+import requests
 import torch
 from g2p_en import G2p
 from nemo_text_processing.text_normalization.normalize import Normalizer
 from nltk.tokenize import sent_tokenize, TweetTokenizer
-from tqdm import tqdm
+from ovos_utils.xdg_utils import xdg_data_home
 from transformers import AutoTokenizer
 
 
 class DeepPoniesEngine:
     def __init__(self, model_path=None):
-        model_path = model_path or f"{gettempdir()}/deepponies"
-        nltk.download("punkt")
+        model_path = model_path or f"{xdg_data_home()}/deepponies"
+        self.download_models(model_path)
         self.g2p = G2p()
         self.acoustic_model = torch.jit.load(f"{model_path}/acoustic_model.pt")
         self.style_predictor = torch.jit.load(f"{model_path}/style_predictor.pt")
@@ -30,6 +31,30 @@ class DeepPoniesEngine:
         self.acoustic_model.eval()
         self.style_predictor.eval()
         self.vocoder.eval()
+
+    @staticmethod
+    def download_models(model_path):
+        makedirs(model_path, exist_ok=True)
+        nltk.download("punkt")
+        base_url = "https://github.com/OpenVoiceOS/ovos-tts-plugin-deepponies/releases/download/0.0.0"
+
+        acoustic_path = f"{model_path}/acoustic_model.pt"
+        if not isfile(acoustic_path):
+            data = requests.get(f"{base_url}/acoustic_model.pt").content
+            with open(acoustic_path, "wb") as f:
+                f.write(data)
+
+        style_predictor_path = f"{model_path}/style_predictor.pt"
+        if not isfile(style_predictor_path):
+            data = requests.get(f"{base_url}/style_predictor.pt").content
+            with open(style_predictor_path, "wb") as f:
+                f.write(data)
+
+        vocoder_path = f"{model_path}/vocoder.pt"
+        if not isfile(vocoder_path):
+            data = requests.get(f"{base_url}/vocoder.pt").content
+            with open(vocoder_path, "wb") as f:
+                f.write(data)
 
     @staticmethod
     def get_sentences(text):
@@ -106,8 +131,7 @@ class DeepPoniesEngine:
             text = text + "."
 
         sentences = self.get_sentences(text)
-        if verbose:
-            sentences = tqdm(sentences)
+
         for sentence in sentences:
             phone_ids = []
             subsentences_style = []

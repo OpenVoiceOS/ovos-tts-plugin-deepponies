@@ -5,6 +5,4 @@ nltk==3.6.5
 Cython
 nemo_toolkit==1.5.1
 pynini==2.1.4
-gdown==4.2.0
-tqdm
 soundfile
