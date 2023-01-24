@@ -6,8 +6,6 @@ from ovos_tts_plugin_deepponies.deepponies import DeepPoniesEngine
 
 class DeepPoniesTTSPlugin(TTS):
     def __init__(self, *args, **kwargs):
-        # in here you should specify if your plugin return wav or mp3 files
-        # you should also specify any valid ssml tags
         ssml_tags = []
         super().__init__(*args, **kwargs, audio_ext="wav", ssml_tags=ssml_tags)
         # read config settings for your plugin if any
@@ -16,8 +14,6 @@ class DeepPoniesTTSPlugin(TTS):
         if not self.voice or self.voice == "default":
             self.voice = "Heavy"
         self.engine = DeepPoniesEngine()
-        from pprint import pprint
-        pprint(self.engine.speaker2id.keys())
 
     def get_tts(self, sentence, wav_file, voice=None):
         voice = voice or self.voice
@@ -35,7 +31,6 @@ class DeepPoniesTTSPlugin(TTS):
         Returns:
             set: supported languages
         """
-        # TODO - what langs can this TTS handle?
         return {"en-us"}
 
 
