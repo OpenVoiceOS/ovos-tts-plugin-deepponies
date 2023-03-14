@@ -38,6 +38,7 @@ setup(
     license='Apache-2.0',
     packages=['ovos_tts_plugin_deepponies'],
     install_requires=required("requirements.txt"),
+    include_package_data = True,
     zip_safe=True,
     classifiers=[
         'Development Status :: 3 - Alpha',
