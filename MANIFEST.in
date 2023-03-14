@@ -1,5 +1,5 @@
 include CHANGELOG.md
 include requirements.txt
 include LICENSE
-recursive-include ovos_tts_plugin_deepponies *.json
-recursive-include ovos_tts_plugin_deepponies *.txt
+recursive-include ovos_tts_plugin_deepponies/assets *.json
+recursive-include ovos_tts_plugin_deepponies/assets *.txt
