@@ -1,7 +1,7 @@
 import fileinput
 from os.path import join, dirname
 
-version_file = join(dirname(dirname(__file__)), "ovos_tts_plugin_ deepponies", "version.py")
+version_file = join(dirname(dirname(__file__)), "ovos_tts_plugin_deepponies", "version.py")
 version_var_name = "VERSION_ALPHA"
 
 with open(version_file, "r", encoding="utf-8") as v:

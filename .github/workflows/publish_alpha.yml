@@ -6,7 +6,7 @@ on:
     branches:
       - dev
     paths-ignore:
-      - 'ovos_tts_plugin_ deepponies/version.py'
+      - 'ovos_tts_plugin_deepponies/version.py'
       - 'test/**'
       - 'examples/**'
       - '.github/**'
