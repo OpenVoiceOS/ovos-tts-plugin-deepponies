@@ -46,8 +46,7 @@ DeepPoniesTTSPluginConfig = {
             "display_name": f"{voice} (DeepPonies)",
             "voice": voice,
             "priority": 50,
-            "offline": True}]
-    for voice in ['Barack Obama', 'Billie Eilish',
+            "offline": True} for voice in ['Barack Obama', 'Billie Eilish',
                   'Donald Trump', 'Joe Biden',
                   'Joe Rogan', 'Kanye West',
                   'Kim Kardashian', 'Kratos',
@@ -67,7 +66,7 @@ DeepPoniesTTSPluginConfig = {
                   'Yukiko Amagi', 'GLaDOS', 'SpongeBob',
                   'Demoman', 'Engineer', 'Heavy',
                   'Medic', 'Scout', 'Sniper', 'Soldier',
-                  'Spy', 'Bart Simpson', 'Homer Simpson']
+                  'Spy', 'Bart Simpson', 'Homer Simpson']]
 }
 
 if __name__ == "__main__":
