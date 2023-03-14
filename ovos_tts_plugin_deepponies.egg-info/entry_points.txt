@@ -1,0 +1,6 @@
+[mycroft.plugin.tts]
+ovos-tts-plugin-deepponies = ovos_tts_plugin_deepponies:DeepPoniesTTSPlugin
+
+[mycroft.plugin.tts.config]
+ovos-tts-plugin-deepponies.config = ovos_tts_plugin_deepponies:DeepPoniesTTSPluginConfig
+

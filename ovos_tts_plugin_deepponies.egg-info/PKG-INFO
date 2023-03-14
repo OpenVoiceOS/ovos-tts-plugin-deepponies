@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: ovos-tts-plugin-deepponies
+Version: 0.0.2
+Summary: deepponies tts plugin for OpenVoiceOS
+Home-page: https://github.com/OpenVoiceOS/ovos-tts-plugin-deepponies
+Author: JarbasAi
+Author-email: jarbasai@mailfence.com
+License: Apache-2.0
+Description: UNKNOWN
+Keywords: mycroft plugin tts OVOS OpenVoiceOS
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
