@@ -1,5 +1,9 @@
 # Changelog
 
+## [V0.0.2a2](https://github.com/OpenVoiceOS/ovos-tts-plugin-deepponies/tree/V0.0.2a2) (2023-03-14)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-tts-plugin-deepponies/compare/V0.0.1...V0.0.2a2)
+
 ## [V0.0.1](https://github.com/OpenVoiceOS/ovos-tts-plugin-deepponies/tree/V0.0.1) (2023-03-14)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-tts-plugin-deepponies/compare/0.0.0...V0.0.1)
